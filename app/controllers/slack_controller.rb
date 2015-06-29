@@ -22,8 +22,8 @@ end
 
 def verify_slack_token
   puts "EQUAL"
-  puts (Rails.application.secrets.slack_token.to_s == params[:token].to_s).to_s
-  render nothing: true, status: :forbidden and return unless Rails.application.secrets.slack_token.to_s == params[:token].to_s
+  puts (Rails.application.secrets.slack_token.equal?(params[:token])).to_s
+  render nothing: true, status: :forbidden and return unless Rails.application.secrets.slack_token.equal?(params[:token])
 end
 
 def exclude_seffy
