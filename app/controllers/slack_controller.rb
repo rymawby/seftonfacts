@@ -26,9 +26,6 @@ def verify_slack_token
 end
 
 def exclude_seffy
-  puts slack_params[:user_id].to_s
-  puts Rails.application.secrets.seffy_user_id.to_s
   verified_is_seffy = slack_params[:user_id].to_s == Rails.application.secrets.seffy_user_id.to_s
-  puts verified_is_seffy.to_s
   render nothing: true, status: :forbidden and return if verified_is_seffy
 end
