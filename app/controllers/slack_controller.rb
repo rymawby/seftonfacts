@@ -17,7 +17,7 @@ end
 
 private
 def slack_params
-  params.require(:slack).permit(:text, :user_id)
+  params.permit(:text, :user_id)
 end
 
 def verify_slack_token
